@@ -17,10 +17,10 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update Log - 23f3001457@ds.study.iitm.ac.in
         run: |
-          git pull origin main
           echo "Daily update - $(date '+%Y-%m-%d %H:%M:%S UTC')" >> daily-log.txt
 
       - name: Commit Changes
@@ -29,4 +29,4 @@ jobs:
           git config --global user.name "DevSync Automation"
           git add daily-log.txt
           git commit -m "chore: daily automated update $(date '+%Y-%m-%d')"
-          git push origin main
+          git push --force origin main
