@@ -25,4 +25,5 @@ jobs:
           git config --global user.name "DevSync Automation"
           git add daily-log.txt
           git commit -m "chore: daily automated update $(date '+%Y-%m-%d')"
+          git pull --rebase origin main
           git push
