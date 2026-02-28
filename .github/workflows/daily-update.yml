@@ -8,12 +8,12 @@ on:
 jobs:
   daily-commit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update Log - 23f3001457@ds.study.iitm.ac.in
         run: |
